@@ -8,8 +8,6 @@ defmodule Day1 do
         |> String.split("\n", trim: true)
         |> Enum.map(&split_input/1)
 
-      # |> Enum.map(&String.to_integer/1)
-
       {:error, reason} ->
         IO.puts("Error reading file: #{reason}")
         []
@@ -39,11 +37,11 @@ defmodule Day1 do
 
   def run() do
     get_input()
-    |> IO.inspect(label: "Input", limit: 10)
+    # |> IO.inspect(label: "Input", limit: 10)
     |> pair_number()
-    |> IO.inspect(label: "Pairs", limit: 10)
+    # |> IO.inspect(label: "Pairs", limit: 10)
     |> calc_distance()
-    |> IO.inspect(label: "Distances", limit: 10)
+    # |> IO.inspect(label: "Distances", limit: 10)
     |> total_distance()
     |> IO.inspect(label: "Total Distance")
   end

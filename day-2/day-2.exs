@@ -30,7 +30,14 @@ defmodule Day2 do
   end
 
   defp safe_report?(levels) do
-    increasing?(levels) or decreasing?(levels)
+    increasing?(levels) or decreasing?(levels) or can_be_safe_by_removing_one_level?(levels)
+  end
+
+  defp can_be_safe_by_removing_one_level?(levels) do
+    Enum.any?(0..(length(levels) - 1), fn i ->
+      new_levels = List.delete_at(levels, i)
+      increasing?(new_levels) or decreasing?(new_levels)
+    end)
   end
 
   defp increasing?([x, y | rest]) when (y - x) in 1..3, do: increasing?([y | rest])

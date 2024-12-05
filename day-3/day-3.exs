@@ -3,7 +3,7 @@ defmodule Day3 do
     "input_whole.txt"
     |> read_file()
     |> parse_input()
-    # |> IO.inspect()
+    |> IO.inspect()
     |> calc_switch()
     |> IO.inspect(label: "output")
   end
@@ -23,7 +23,7 @@ defmodule Day3 do
     regex_mul = ~r/(mul\(\d{1,3},\d{1,3}\)|do\(\)|don't\(\))/
 
     Regex.scan(regex_mul, content)
-    |> Enum.concat()
+    |> Enum.map(&hd(&1))
   end
 
   defp multiply_numbers([x, y | []]) do

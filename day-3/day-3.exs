@@ -3,7 +3,6 @@ defmodule Day3 do
     "input_whole.txt"
     |> read_file()
     |> parse_input()
-    |> IO.inspect()
     |> calc_switch()
     |> IO.inspect(label: "output")
   end
